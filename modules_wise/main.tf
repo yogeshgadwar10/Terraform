@@ -1,0 +1,20 @@
+provider "aws" {
+   region = "us-east-1"  
+}
+module "new_vpc" {
+    source = "./modules/vpc"
+    vpc_cidr = "172.16.0.0/16"
+    pri_sub_cidr = "172.16.0.0/20"
+    pub_sub_cidr = "172.16.16.0/20"
+    
+}
+
+module "instance" {
+    source = "./modules/ec2"
+    image_id =  "ami-020cba7c55df1f615"
+    subnet_id = module.new_vpc.pub_subnet_id
+    vpc_id = module.new_vpc.vpc_id
+    key_pair = "Yogesh-YG"
+    project = "cbz"
+    depends_on = [ module.new_vpc ]
+}    
