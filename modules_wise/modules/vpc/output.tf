@@ -4,6 +4,6 @@ output "vpc_id" {
 output "pri_subnet_id" {
     value = aws_subnet.pri_sub.id   
 }
-output "pri_subnet_id" {
+output "pub_subnet_id" {
     value = aws_subnet.pub_sub.id   
 }
