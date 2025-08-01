@@ -30,6 +30,6 @@ module "my_s3_bucket" {
   enable_encryption = true
   tags = {
     Environment = "Dev"
-    Project     = "MyApp3"
+    Project     = "MyAppyo3"
   }
 }
