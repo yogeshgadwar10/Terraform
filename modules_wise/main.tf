@@ -1,6 +1,9 @@
 provider "aws" {
    region = "us-east-1"  
 }
+
+# # VPC
+
 # module "new_vpc" {
 #     source = "./modules/vpc"
 #     vpc_cidr = "172.16.0.0/16"
@@ -8,6 +11,8 @@ provider "aws" {
 #     pub_sub_cidr = "172.16.16.0/20"
     
 # }
+
+# # instance
 
 # module "instance" {
 #     source = "./modules/ec2"
@@ -19,17 +24,20 @@ provider "aws" {
 #     depends_on = [ module.new_vpc ]
 # }    
 
-# provider "aws" {
-#   region = "us-east-1"
+# # S-Bucket
+
+# module "my_s3_bucket" {
+#   source            = "./modules/s3"
+#   bucket_name       = "my-app-bucket-564"
+#   enable_versioning = true
+#   enable_encryption = true
+#   tags = {
+#     Environment = "Dev"
+#     Project     = "MyAppyo3"
+#   }
 # }
 
-module "my_s3_bucket" {
-  source            = "./modules/s3"
-  bucket_name       = "my-app-bucket-564"
-  enable_versioning = true
-  enable_encryption = true
-  tags = {
-    Environment = "Dev"
-    Project     = "MyAppyo3"
-  }
+resource "aws_iam_instance_profile" "ima_role" {
+  name = "ima-role"
+  role = aws_iam_role.s3-role
 }
