@@ -4,7 +4,7 @@ provider "aws" {
 module "iam_role" {
   source = "./modules/iam_role"
 
-  role_name           = "terraformP"
+  role_name           = "terraf"
   assume_role_policy  = data.aws_iam_policy_document.assume_role.json
   policy_document     = data.aws_iam_policy_document.example.json
   create_policy       = true
