@@ -1,0 +1,8 @@
+var_cidr = "172.16.0.0/16"
+pri_cidr = "172.16.0.0/20"
+pub_cidr = "172.16.16.0/20"
+ami = ""
+instance_type = "t2.medium"
+key = "yogesh-pem"
+project = "cbz"
+env = "dev"
