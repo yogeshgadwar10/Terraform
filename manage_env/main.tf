@@ -11,7 +11,7 @@ provider "aws" {
 }
 
 module "new_vpc" {
-    source = "./modules/vpc" 
+    source = "./modules/vpc"
     vpc_cidr = var.vpc_cidr
     pri_sub_cidr = var.pri_cidr
     pub_sub_cidr = var.pub_cidr
@@ -28,5 +28,4 @@ module "instance" {
     vpc_id = module.new_vpc.vpc_id
     key_pair = var.key
     project = var.project
-  
 }

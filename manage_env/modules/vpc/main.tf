@@ -15,7 +15,7 @@ resource "aws_subnet" "pri_sub" {
     vpc_id = aws_vpc.my_vpc.id 
 }
 
-resource "aws_subnet" "pri_sub_sub" {
+resource "aws_subnet" "pub_sub_sub" {
     cidr_block = var.pub_sub_cidr
     tags = {
       Name = "${project}-pub-subnet"
