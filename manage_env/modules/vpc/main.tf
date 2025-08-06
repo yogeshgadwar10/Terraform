@@ -21,7 +21,10 @@ resource "aws_subnet" "pub_sub_sub" {
       Name = "${project}-pub-subnet"
       env = var.env
     }
-    vpc_id = aws_vpc.my_vpc.id  
+    vpc_id = aws_vpc.my_vpc.id 
+    map_public_ip_on_launch = true
+    availability_zone = var.az
+
 }
 
 resource "aws_internet_gateway" "my_igw" {

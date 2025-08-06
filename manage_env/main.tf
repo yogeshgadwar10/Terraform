@@ -9,7 +9,6 @@ terraform {
 provider "aws" {
     region = "us-east-1"
 }
-
 module "new_vpc" {
     source = "./modules/vpc"
     vpc_cidr = var.vpc_cidr
@@ -29,3 +28,4 @@ module "instance" {
     key_pair = var.key
     project = var.project
 }
+
