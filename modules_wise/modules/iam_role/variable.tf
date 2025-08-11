@@ -25,3 +25,8 @@ variable "tags" {
   description = "Tags for the IAM role"
   default     = {}
 }
+
+variable "trusted_service" {
+  type    = string
+  default = "ec2.amazonaws.com"
+}
